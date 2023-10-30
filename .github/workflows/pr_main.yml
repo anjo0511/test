@@ -22,11 +22,11 @@ jobs:
       LOG_FILE_NAME: log_file.txt
       RUN_FILE_NAME: run_file.txt
       RUN_FILE: |
-        \n	dbt debug 
-        \n	dbt deps
-        \n	git checkout main
-        \n	git compile
-        \n	$run_command 2>&1|tee log_file.txt
+        \	dbt debug 
+        \	dbt deps
+        \	git checkout main
+        \	git compile
+        \	$run_command 2>&1|tee log_file.txt
     steps:
       - name: bla002
         run: echo "Hello bla002 gh head ${{ github.head_ref }}" 
