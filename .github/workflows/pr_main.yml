@@ -24,5 +24,5 @@ jobs:
   job_002:
     runs-on: ubuntu-latest
       steps:
-      - name: bla002
-        run: echo "Hello steps 2"
+        - name: bla002
+          run: echo "Hello steps 2"
