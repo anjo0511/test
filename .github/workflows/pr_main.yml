@@ -20,21 +20,15 @@ jobs:
     env:
       git_head_ref: ${{ github.head_ref }}
       LOG_FILE_NAME: log_file.txt
-      RUN_FILE_NAME: run_file.txt
-      RUN_FILE: |
-        echo 'hello'  
-        dbt debug 
-        dbt deps
-        git checkout main
-        git compile
-        $run_command 2>&1|tee log_file.txt
+      RUN_FILE_NAME: run_file.txt               
     steps:
       - name: bla002
-        run: echo "Hello bla002 gh head ${{ github.head_ref }}" 
+        run: | 
+          echo "echo "${{ github.head_ref }}"" >> $RUN_FILE_NAME
+          echo "ls -la" >> $RUN_FILE_NAME
+          echo "as" >> $RUN_FILE_NAME
         
       - name: bla003
-        run: echo "$RUN_FILE"
+        run: bash $RUN_FILE
         
-      - name: bla004
-        run: echo "$RUN_FILE" > test.txt && cat test.txt
         
