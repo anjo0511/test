@@ -19,7 +19,8 @@ concurrency:
 jobs:
   job_001:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    #if: github.event.pull_request.merged == true
+    if: ${{ github.head_ref }} == "test001"
     steps:
       - name: bla001
         run: echo "Hello bla001 gh head ${{ github.head_ref }}" 
