@@ -18,8 +18,6 @@ jobs:
   job_002:
     runs-on: ubuntu-latest
     env:
-      git_head_ref: ${{ github.head_ref }}
-      LOG_FILE_NAME: log_file.txt
       RUN_FILE_NAME: run_file.sh               
     steps:
       - name: bla002
@@ -28,6 +26,9 @@ jobs:
           echo "as" >> $RUN_FILE_NAME
         
       - name: bla003
-        run: bash $RUN_FILE
+        run: |
+          echo "Hej file"
+          ls -la 
+          bash $RUN_FILE
         
         
