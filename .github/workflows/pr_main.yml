@@ -7,9 +7,7 @@ permissions:
 
 on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-pull_request-workflow-when-a-pull-request-merges
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
 
@@ -17,17 +15,24 @@ concurrency:
   group: dbt-deploy-prod
 
 jobs:
-  job_001:
-    runs-on: ubuntu-latest
-    #if: github.event.pull_request.merged == true
-    if: github.head_ref == 'anjo0511-patch-10'
-    steps:
-      - name: bla001
-        run: echo "Hello bla001 gh head ${{ github.head_ref }}" 
-        
   job_002:
     needs: job_001
     runs-on: ubuntu-latest
+    env:
+      run_command: ${{ inputs.dbt-command }}
+      git_head_ref: ${{ github.head_ref }}
+      LOG_FILE_NAME: log_file.txt
+      RUN_FILE_NAME: run_file.txt
+      RUN_FILE: |
+        dbt debug
+        dbt deps
+        git checkout main
+        git compile
+        $run_command 2>&1|tee log_file.txt
     steps:
       - name: bla002
         run: echo "Hello bla002 gh head ${{ github.head_ref }}" 
+      - name: bla003
+        run: echo $RUN_FILE
+      - name: bla004
+        run: echo $RUN_FILE > test.txt && cat test.txt
