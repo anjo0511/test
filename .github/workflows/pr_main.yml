@@ -33,4 +33,4 @@ jobs:
       - name: bla003
         run: echo $RUN_FILE
       - name: bla004
-        run: echo $RUN_FILE > test.txt && cat test.txt
+        run: echo -e $RUN_FILE > test.txt && cat test.txt
