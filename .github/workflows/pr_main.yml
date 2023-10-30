@@ -30,5 +30,6 @@ jobs:
           echo "Hej file"
           ls -la 
           bash $RUN_FILE
+          echo "exit code: $?"
         shell: bash
         
