@@ -33,8 +33,8 @@ jobs:
         run: echo "Hello bla002 gh head ${{ github.head_ref }}" 
         shell: bash
       - name: bla003
-        run: echo $RUN_FILE
+        run: echo "$RUN_FILE"
         shell: bash
       - name: bla004
-        run: echo $RUN_FILE > test.txt && cat test.txt
+        run: echo "$RUN_FILE" > test.txt && cat test.txt
         shell: bash
