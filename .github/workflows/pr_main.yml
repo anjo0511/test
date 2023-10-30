@@ -20,11 +20,10 @@ jobs:
     env:
       git_head_ref: ${{ github.head_ref }}
       LOG_FILE_NAME: log_file.txt
-      RUN_FILE_NAME: run_file.txt               
+      RUN_FILE_NAME: run_file.sh               
     steps:
       - name: bla002
-        run: | 
-          echo "echo "${{ github.head_ref }}"" >> $RUN_FILE_NAME
+        run: |
           echo "ls -la" >> $RUN_FILE_NAME
           echo "as" >> $RUN_FILE_NAME
         
