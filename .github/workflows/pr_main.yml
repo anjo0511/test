@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "Hej file"
           ls -la
-          cat "$RUN_FILE"
+          cat $RUN_FILE
           bash $RUN_FILE
           echo "exit code: $?"
         shell: bash
