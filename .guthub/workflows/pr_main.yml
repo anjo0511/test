@@ -1,0 +1,28 @@
+name: DBT Deploy To Stage
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-pull_request-workflow-when-a-pull-request-merges
+  pull_request:
+    types:
+      - closed
+
+concurrency:
+  group: dbt-deploy-prod
+
+jobs:
+  job_001:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: bla001
+        run: echo "Hello steps 1"
+  job_002:
+    runs-on: ubuntu-latest
+      steps:
+      - name: bla002
+        run: echo "Hello steps 2"
