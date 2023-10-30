@@ -23,6 +23,7 @@ jobs:
       - name: bla002
         run: |
           echo "set -e" >> $RUN_FILE_NAME
+          echo "ls -la" >> $RUN_FILE_NAME
           echo "cat 1000sad10" >> $RUN_FILE_NAME
           echo "ls -la" >> $RUN_FILE_NAME
         
