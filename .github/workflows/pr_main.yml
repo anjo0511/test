@@ -16,7 +16,6 @@ concurrency:
 
 jobs:
   job_002:
-    needs: job_001
     runs-on: ubuntu-latest
     env:
       run_command: ${{ inputs.dbt-command }}
