@@ -23,6 +23,6 @@ jobs:
         run: echo "Hello steps 1"
   job_002:
     runs-on: ubuntu-latest
-      steps:
-        - name: bla002
-          run: echo "Hello steps 2"
+    steps:
+      - name: bla002
+        run: echo "Hello steps 2"
