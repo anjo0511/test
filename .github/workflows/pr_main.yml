@@ -20,7 +20,7 @@ jobs:
   job_001:
     runs-on: ubuntu-latest
     #if: github.event.pull_request.merged == true
-    if: github.head_ref == "anjo0511-patch-10"
+    if: github.head_ref == 'anjo0511-patch-10'
     steps:
       - name: bla001
         run: echo "Hello bla001 gh head ${{ github.head_ref }}" 
