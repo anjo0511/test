@@ -22,7 +22,7 @@ jobs:
     if: github.event.pull_request.merged == true
     steps:
       - name: bla001
-        run: echo "Hello gh head : ${{ github.head_ref }}" 
+        run: echo "Hello gh head ${{ github.head_ref }}" 
         
   job_002:
     runs-on: ubuntu-latest
