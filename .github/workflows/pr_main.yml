@@ -18,7 +18,6 @@ jobs:
   job_002:
     runs-on: ubuntu-latest
     env:
-      run_command: ${{ inputs.dbt-command }}
       git_head_ref: ${{ github.head_ref }}
       LOG_FILE_NAME: log_file.txt
       RUN_FILE_NAME: run_file.txt
