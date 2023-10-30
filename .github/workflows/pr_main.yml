@@ -23,12 +23,13 @@ jobs:
       - name: bla002
         run: |
           echo "ls -la" >> $RUN_FILE_NAME
-          echo "as" >> $RUN_FILE_NAME
+          echo "cat 1000sad10" >> $RUN_FILE_NAME
         
       - name: bla003
         run: |
           echo "Hej file"
-          ls -la 
+          ls -la
+          cat "$RUN_FILE"
           bash $RUN_FILE
           echo "exit code: $?"
         shell: bash
