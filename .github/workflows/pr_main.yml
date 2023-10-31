@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - name: bla002
+        env:
+          git_ref: ${{ github.ref }}
+          git_head_ref: ${{ github.head_ref }}
+          git_sha: ${{ github.sha }}
         run: |
-          echo "works only on prs closed to main"
+          echo "git_ref: $git_ref | git_head_ref: $git_head_ref | git_sha: $git_sha |"
         
