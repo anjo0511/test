@@ -20,6 +20,12 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest    
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+            show-progress: false
+      
       - name: bla002
         env:
           git_ref: ${{ github.ref }}
@@ -27,4 +33,7 @@ jobs:
           git_sha: ${{ github.sha }}
         run: |
           echo "git_ref: $git_ref | git_head_ref: $git_head_ref | git_sha: $git_sha |"
-        
+          cat README.md
+          git checkout HEAD~1
+          cat README.md
+
