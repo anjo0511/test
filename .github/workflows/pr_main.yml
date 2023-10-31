@@ -34,6 +34,10 @@ jobs:
         run: |
           echo "git_ref: $git_ref | git_head_ref: $git_head_ref | git_sha: $git_sha |"
           cat README.md
+          echo "_1"
+          git checkout $git_head_ref
+          cat README.md
+          echo "_1"
           git checkout HEAD~1
           cat README.md
 
