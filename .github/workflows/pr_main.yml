@@ -1,5 +1,6 @@
 name: DBT Deploy To Stage
 
+
 permissions:
   id-token: write
   contents: read
@@ -7,34 +8,19 @@ permissions:
 
 on:
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-pull_request-workflow-when-a-pull-request-merges
-  push:
-    branches:
-      - main
+  pull_request:
+    branches: [main]
+    types: [closed]
 
 concurrency:
   group: dbt-deploy-prod
 
 jobs:
   job_002:
-    runs-on: ubuntu-latest
-    env:
-      RUN_FILE_NAME: run_file.sh               
+    if: github.event.pull_request.merged == 'true'
+    runs-on: ubuntu-latest    
     steps:
       - name: bla002
         run: |
-          echo "set -e" >> $RUN_FILE_NAME
-          echo "ls -la" >> $RUN_FILE_NAME
-          echo "cat 1000sad10" >> $RUN_FILE_NAME
-          echo "ls -la" >> $RUN_FILE_NAME
-        
-      - name: bla003
-        run: |
-          echo "step 1"
-          ls -la
-          echo "step 1"
-          cat $RUN_FILE_NAME
-          echo "step 1"
-          bash $RUN_FILE_NAME
-          echo "exit code: $?"
-        shell: bash
+          echo "works only on prs closed to main"
         
