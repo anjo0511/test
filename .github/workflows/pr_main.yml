@@ -29,7 +29,7 @@ jobs:
       - name: bla002
         env:
           git_ref: ${{ github.ref }}
-          git_head_ref: ${{ github.head_ref }}
+          git_head_ref: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' && github.head_ref || 'HEAD~1'}}
           git_sha: ${{ github.sha }}
         run: |
           echo "git_ref: $git_ref | git_head_ref: $git_head_ref | git_sha: $git_sha |"
