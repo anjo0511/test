@@ -27,6 +27,7 @@ jobs:
             show-progress: false
       
       - name: bla002
+        timeout-minutes: 30
         env:
           git_ref: ${{ github.ref }}
           git_head_ref: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' && github.head_ref || 'HEAD~1'}}
@@ -38,6 +39,7 @@ jobs:
           git checkout $git_head_ref
           cat README.md
           echo "_1"
+          sleep 2100
           git checkout HEAD~1
           cat README.md
 
